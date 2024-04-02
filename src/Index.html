@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINISTERIO DE SALUD</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) , rgba(0, 0, 0, 0) 40%); /* Degradado negro de arriba hacia abajo */
+    background-color: #004AAD; /* Fondo azul */
+    display: flex;
+    flex-direction: column; /* Alinear elementos verticalmente */
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+        .container {
+            width: 200px; /* Hacer el contenedor más angosto */
+            height: 100px; /* Hacer el contenedor menos alto */
+            background-color: black;
+            border: 5px solid white;
+            /*border-radius: 10px;*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .counter {
+            font-size: 48px;
+            color: white;
+        }
+
+        .link{
+            width: 200px;
+            height: 75px;
+            background-color: black;
+            border: 5px solid white;
+            display: flex;
+            position: absolute; /* Posición absoluta para que el enlace pueda ser posicionado dentro del contenedor */
+            bottom: 5%; /* Distancia desde el borde inferior del contenedor */
+            left: 10%; 
+            justify-content: center;
+            align-items: center;
+        }
+        .link2{
+            width: 200px;
+            height: 75px;
+            background-color: black;
+            border: 5px solid white;
+            display: flex;
+            position: absolute; /* Posición absoluta para que el enlace pueda ser posicionado dentro del contenedor */
+            bottom: 5%; /* Distancia desde el borde inferior del contenedor */
+            right: 10%; 
+            justify-content: center;
+            align-items: center;
+        }
+        a {
+            
+            font-size: 15px; /* Cambiar el tamaño de la letra del enlace */
+            color: white; /* Cambiar el color del texto del enlace */
+            text-decoration: none; /* Quitar subrayado del enlace */
+        }
+
+        img{
+            width: 100%; /* Ancho de la imagen */
+            max-width: 500px; /* Ancho máximo para evitar que la imagen se estire demasiado en pantallas grandes */
+            margin-top: 75px; /* Mover la imagen hacia abajo */
+
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 20px; /* Espacio debajo del h1 */
+        }
+    </style>
+</head>
+<body>
+    <h1>TRANSICIONES DETECTADAS</h1>
+    <div class="container">
+        <div id="counter" class="counter">1563</div>
+    </div>
+    <div class="link">
+      <a href="https://lektu.com/l/nocturn-infernum/nocturn-infernum-relatos-del-terror-cosmico/20813" target="_blank">Transiciones realizadas</a>
+    </div>
+    <div class="link2">
+      <a href="https://lektu.com/l/nocturn-infernum/nocturn-infernum-relatos-del-terror-cosmico/20813" target="_blank">Posibles amenazas</a>
+    </div>
+    <div class="mapa">
+       <img src="/src/asset/tu_animacion.gif" alt="Animación GIF">
+    </div>
+    
+       <script>
+        function updateCounter() {
+            const counterElement = document.getElementById('counter');
+            let currentNumber = parseInt(counterElement.textContent);
+            const increment = Math.floor(Math.random() * 15) + 1; // Genera un número aleatorio entre 1 y 15
+            currentNumber += increment;
+            counterElement.textContent = currentNumber;
+            localStorage.setItem('counterValue', currentNumber); // Guardar el valor en localStorage
+        }
+
+        // Obtener el valor del contador del localStorage y establecerlo al cargar la página
+        window.onload = function() {
+            const savedValue = localStorage.getItem('counterValue');
+            if (savedValue !== null) {
+                const initialValue = parseInt(savedValue) + Math.floor(Math.random() * 901) + 100; // Sumar un número aleatorio entre 100 y 1000
+                document.getElementById('counter').textContent = initialValue;
+            }
+        };
+
+        // Actualiza el contador cada segundo
+        setInterval(updateCounter, 1000);
+    </script>
+</body>
+</html>
